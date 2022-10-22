@@ -1,0 +1,18 @@
+{
+    "name": "djs-bot-template",
+    "version": "1.0.0",
+    "description": "A Discord bot template based on discordjs@latest",
+    "main": "./src/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "",
+    "dependencies": {
+        "ascii-table": "^0.0.9",
+        "discord.js": "^14.6.0",
+        "dotenv": "^16.0.3",
+        "glob": "^8.0.3"
+    }
+}

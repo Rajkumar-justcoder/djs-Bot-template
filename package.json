@@ -13,6 +13,7 @@
         "ascii-table": "^0.0.9",
         "discord.js": "^14.6.0",
         "dotenv": "^16.0.3",
-        "glob": "^8.0.3"
+        "glob": "^8.0.3",
+        "mongoose": "^6.7.1"
     }
 }

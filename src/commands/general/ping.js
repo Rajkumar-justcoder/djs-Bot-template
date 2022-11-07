@@ -8,7 +8,7 @@ module.exports = {
      * @param {client} client client
      * @param {EmbedBuilder} EmbedBuilder embed bind
      */
-    run(interaction) {
+    async run(interaction) {
         try {
             interaction.channel.sendTyping();
             const pingLatency = Date.now() - interaction.createdTimestamp;

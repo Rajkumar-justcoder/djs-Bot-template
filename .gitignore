@@ -18,6 +18,7 @@ server.js
 npm-debug.log*
 .pnpm-debug.log*
 
-# package manager lock files 
+# package manager lock files
+pnpm-lock.yaml 
 package-lock.json
 yarn.lock

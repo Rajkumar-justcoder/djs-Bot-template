@@ -34,5 +34,4 @@ module.exports = async (client) => {
     // Table.setHeading(`${eventfiles.length}  Events loaded `)
     console.log(Table.toString());
     console.log(`${eventfiles.length}  Events loaded `);
-
 };

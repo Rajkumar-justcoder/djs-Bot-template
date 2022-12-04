@@ -6,8 +6,9 @@ const { User, Message, GuildMember } = Partials;
 require('dotenv/config');
 const config = {
     TOKEN: process.env.TOKEN,
-    PRIVATEGUILD: process.env.PRIVATEGUILD,
-    MONGODBURL: process.env.MONGODBURL
+    PRIVATEGUILD: process.env.PRIVATEGUILD ? process.env.PRIVATEGUILD : null,
+    MONGODBURL: process.env.MONGODBURL ? process.env.MONGODBURL : null,
+
 };
 
 const client = new Client({
@@ -29,7 +30,6 @@ const client = new Client({
 client.commands = new Collection();
 client.events = new Collection();
 client.config = config;
-
 
 client.login(config.TOKEN)
     .then(() => {

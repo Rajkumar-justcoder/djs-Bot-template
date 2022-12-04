@@ -20,10 +20,13 @@ A Discord bot template based on discordjs@latest.
     PRIVATEGUILD= guild id here
     MONGODBURL= mongo db url
     ```
+  
 
 > **NOTE**
 >
-> -  Mongo db URL is optional. If you don't need it, then remove code from `src/events/client/ready.js` file and remove the import as well. Then uninstall mongoose package and also remove pongoose package.
+> -  If no any private or mongodburl then leave it empty  in .env file 
+> - Mongo db URL is optional. If you don't need it, then remove code as well as the `import` from `src/events/client/ready.js` file. Then uninstall the mongoose package.
+ 
 >
 > - If you want the code to be kept for a future mongo db connection then let it be there for later use and instead, remove the imports in that file and uninstall packages.
 

@@ -22,7 +22,7 @@ module.exports = async (client) => {
 
         if (!command?.description) return Table.addRow(`${command.name}`, '🔶 FAILED', `${file.match(/[\w\s\-]+\.\w+$/)} Valid command desc is not provided`);
 
-        if (!command?.run) return Table.addRow(`${command.name}`, '🔶 FAILED', `${file.match(/[\w\s\-]+\.\w+$/)} this event does not have run function`);
+        if (!command?.run) return Table.addRow(`${command.name}`, '🔶 FAILED', `${file.match(/[\w\s\-]+\.\w+$/)} Missing a run function`);
 
 
         client.commands.set(command.name, command);

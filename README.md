@@ -47,7 +47,9 @@ If any default errors found while registering commands, it will show here:
 
 
 ## How to add Commands
-- Coming soon.
+- See `how to add commands.md` to add commands 
+- See `how to add events.md` to add events
+
 
 ## What is Discord.js?
 - Discord.js is a powerful Node.js  module that allows you to interact with the Discord API  very easily. It takes a much more object-oriented approach than most other JS Discord libraries, making your bot's code significantly tidier and easier to comprehend.

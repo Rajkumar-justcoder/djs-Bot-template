@@ -21,3 +21,5 @@ module.exports = {
 };
 
 ```
+your commands goes inside `/src/commands/any_folder_if_u_have/cmd_name.js` 
+like if its servercommands then its inside `src/commands/servercommands/` eg `src/commands/servercommands/serverinfo.js`

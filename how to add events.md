@@ -21,3 +21,6 @@ async run(oldPresence, newPresence, client){
     // here memberpresence update  event have 2 parameters so it will be like this  any thing but client will be at last of it and if it get switch then it will property will change so ...
 } 
 ```
+
+your events goes inside `src/events/any_folder_if_u_have/cmd_name.js` 
+like if its client event  then its inside `src/events/client/` eg `src/events/client/ready.js`

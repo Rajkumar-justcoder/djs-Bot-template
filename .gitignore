@@ -13,6 +13,8 @@ server.js
 /dump
 
 /.history
+extracmds/
+extracmds/**
 
 # debug and log files
 npm-debug.log*

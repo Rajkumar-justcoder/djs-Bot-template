@@ -1,15 +1,17 @@
-const { ChatInputCommandInteraction, EmbedBuilder } = require('discord.js');
+const { ChatInputCommandInteraction, SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
-    name: 'serverinfo',
-    description: 'Display info about server',
+    data: new SlashCommandBuilder()
+        .setName('serverinfo')
+        .setDescription('Send server info')
+        .setDMPermission(false),
     /**
      *
      * @param {ChatInputCommandInteraction} interaction intraction
      */
     async run(interaction) {
+
         try {
-            interaction.channel.sendTyping();
             const serverembed = new EmbedBuilder()
 
                 .setAuthor({
@@ -34,7 +36,6 @@ module.exports = {
                 .setFooter({ text: `Requested by ${interaction.member.user.username}`, iconURL: interaction.guild.iconURL({ dynamic: true }) })
                 .setTimestamp();
             interaction.reply({ embeds: [serverembed], ephemeral: false });
-            console.log(`/Serverinfo command used by : ${interaction.member.user}`);
         } catch (error) {
             console.log(error);
         }

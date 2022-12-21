@@ -18,27 +18,19 @@ module.exports = async (client) => {
     const SlashCommands = [];
     commandsFiles.forEach((file) => {
         const command = require(file);
-        if (!command?.name) return Table.addRow(`${file.match(/[\w\s\-]+\.\w+$/)}`, '🔶 FAILED', `${file.match(/[\w\s\-]+\.\w+$/)} Missing a name ( name must be lowercase )`);
+        if (!command?.data?.name) return Table.addRow(`${file.match(/[\w\s\-]+\.\w+$/)}`, '🔶 FAILED', `${file.match(/[\w\s\-]+\.\w+$/)} Missing a name ( name must be lowercase )`);
 
-        if (!command?.description) return Table.addRow(`${command.name}`, '🔶 FAILED', `${file.match(/[\w\s\-]+\.\w+$/)} Valid command desc is not provided`);
-
-        if (!command?.run) return Table.addRow(`${command.name}`, '🔶 FAILED', `${file.match(/[\w\s\-]+\.\w+$/)} Missing a run function`);
+        if (!command?.run) return Table.addRow(`${command.name}`, '🔶 FAILED', `${file.match(/[\w\s\-]+\.\w+$/)} Missing a run function or if u have different name change it to run `);
 
 
-        client.commands.set(command.name, command);
-        SlashCommands.push(command);
-        Table.addRow(command.name, '🔷 Successfull');
+        client.commands.set(command.data.name, command);
+        SlashCommands.push(command.data.toJSON());
+        Table.addRow(command.data.name, '🔷 Successfull');
 
     });
 
-    if (client.config.PRIVATEGUILD) {
+    client.application.commands.set(SlashCommands);  // global slash cmd, this take time to load / add cmd to all guild 
 
-        const privateguild = client.guilds.cache.get(client.config.PRIVATEGUILD);
-        privateguild.commands.set(SlashCommands);  // set cmd to private guild
-
-    } else {
-        client.application.commands.set(SlashCommands);  // global slash cmd, this take time to load / add cmd to all guild 
-    }
     console.log(Table.toString())
     console.log(`${SlashCommands.length}  Commands loaded `);
 

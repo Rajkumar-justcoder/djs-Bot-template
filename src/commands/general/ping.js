@@ -1,8 +1,10 @@
-const { Client, EmbedBuilder, ChatInputCommandInteraction } = require('discord.js');
+const { Client, EmbedBuilder, SlashCommandBuilder, ChatInputCommandInteraction } = require('discord.js');
 
 module.exports = {
-    name: 'ping',
-    description: 'Check ping of bot',
+    data: new SlashCommandBuilder()
+        .setName('ping')
+        .setDescription('Sent bot ping info and latency')
+        .setDMPermission(false),
     /**
      * @param {ChatInputCommandInteraction} interaction intractions
      * @param {client} client client
@@ -10,7 +12,6 @@ module.exports = {
      */
     async run(interaction) {
         try {
-            interaction.channel.sendTyping();
             const pingLatency = Date.now() - interaction.createdTimestamp;
             const apiLatency = Math.round(`${interaction.client.ws.ping}`);
             const pingembed = new EmbedBuilder()
@@ -28,9 +29,6 @@ module.exports = {
                 .setFooter({ text: `${interaction.user.username}`, iconURL: `${interaction.guild.iconURL({ dynamic: true })}` })
                 .setTimestamp();
             interaction.reply({ embeds: [pingembed] });
-
-            console.log(`/ping by ${interaction.user}`);
-
         } catch (error) {
             console.log(error);
         }

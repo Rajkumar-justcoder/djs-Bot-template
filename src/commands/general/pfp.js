@@ -1,18 +1,15 @@
 /* eslint-disable no-empty-function */
-const { ChatInputCommandInteraction, EmbedBuilder, ApplicationCommandOptionType } = require('discord.js');
+const { ChatInputCommandInteraction, SlashCommandBuilder, EmbedBuilder, ApplicationCommandOptionType } = require('discord.js');
 const { User } = ApplicationCommandOptionType;
 
 module.exports = {
-    name: 'pfp',
-    description: 'Display Profile pic',
-    options: [
-        {
-            name: 'user',
-            description: 'User to display profile',
-            type: User,
-            required: true
-        }
-    ],
+    data: new SlashCommandBuilder()
+        .setName('pfp')
+        .setDescription('display user profile image')
+        .addUserOption((option) =>
+            option.setName('user').setDescription('User to display profile').setRequired(true)
+        )
+        .setDMPermission(false),
     /**
      * @param {ChatInputCommandInteraction} interaction intractions
      */
@@ -38,8 +35,6 @@ module.exports = {
                     ]
                 });
             });
-            console.log(`/avatar used by ${interaction.user}`);
-
         } catch (error) {
             console.log(error);
         }

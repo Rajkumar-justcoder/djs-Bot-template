@@ -16,11 +16,9 @@ module.exports = {
         ];
 
         let timechange = 0;
-        // this.client.user.setStatus('dnd');
         setInterval(() => client.user.setActivity(`${activities[timechange++ % activities.length]}`, { type: 'WATCHING' }), 15000);
 
         console.log(`Logged in as ${client.user.tag}`);
-
 
         if (!client.config.MONGODBURL) return;
         mongoose.connect(client.config.MONGODBURL, {
@@ -31,6 +29,5 @@ module.exports = {
         }).catch((err) => {
             console.log(err);
         });
-
     }
 };

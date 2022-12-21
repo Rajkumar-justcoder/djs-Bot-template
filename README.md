@@ -17,12 +17,12 @@ A Discord bot template based on discordjs@latest.
 
     ```bash
     TOKEN=Your bot Token here
-    PRIVATEGUILD= guild id here
     MONGODBURL= mongo db url
     ```
   
 
 > **NOTE**
+> - if u dont want any command to be use in dm then set it to false by (`slashcmdbuilder.setDMPermission(false)`).
 >
 > -  If no any private or mongodburl then leave it empty  in .env file 
 > - Mongo db URL is optional. If you don't need it, then remove code as well as the `import` from `src/events/client/ready.js` file. Then uninstall the mongoose package.

@@ -13,7 +13,6 @@ module.exports = {
 
         try {
             const serverembed = new EmbedBuilder()
-
                 .setAuthor({
                     name: `Server info for ${interaction.guild.name}`,
                     iconURL:

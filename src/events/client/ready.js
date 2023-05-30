@@ -21,7 +21,7 @@ module.exports = {
         console.log(`Logged in as ${client.user.tag}`);
 
         if (!client.config.MONGODBURL) return;
-        mongoose.connect(client.config.MONGODBURL, {
+        mongoose.set('strictQuery', false).connect(client.config.MONGODBURL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         }).then(() => {

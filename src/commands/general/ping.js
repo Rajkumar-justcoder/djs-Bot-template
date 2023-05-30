@@ -5,6 +5,7 @@ module.exports = {
         .setName('ping')
         .setDescription('Sent bot ping info and latency')
         .setDMPermission(false),
+
     /**
      * @param {ChatInputCommandInteraction} interaction intractions
      * @param {client} client client
@@ -29,6 +30,10 @@ module.exports = {
                 .setFooter({ text: `${interaction.user.username}`, iconURL: `${interaction.guild.iconURL({ dynamic: true })}` })
                 .setTimestamp();
             interaction.reply({ embeds: [pingembed] });
+
+            // let asume this is warn cmd 
+
+
         } catch (error) {
             console.log(error);
         }
